@@ -10,8 +10,8 @@ export const Header = () => {
       <div className="main">
         <Link to="/">Home</Link>
         <Link to="/cart">Cart</Link>
-        <Link to="/signin">Login</Link>
-        <Link to="/logout">Logout</Link>
+        <Link to="/signin">signin</Link>
+        <Link to="/signout">signout</Link>
       </div>
     </>
   );

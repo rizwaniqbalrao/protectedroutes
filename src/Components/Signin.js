@@ -11,15 +11,18 @@ function Signin() {
   const navigate = useNavigate();
 
   const { handleAuthChange } = useCreateAuthDispatchContext();
+
   // this is function which one is callign on submit button
   const handleOnclick = () => {
+    console.log(userName, userPassword);
     if (userName !== "1" && userPassword !== "1") {
       return;
     }
+
     // it will keep session save untill logout
-    console.log("aaa");
-    // handleAuthChange(true);
+    handleAuthChange(true);
     // this is to redirect link
+
     navigate("/cart");
   };
 
