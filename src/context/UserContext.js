@@ -15,7 +15,7 @@ function UserContext({ children }) {
     // it will fetch state one by one
     // extra bracket is beacuse of function
     //const [userData, setUserData] = React.useState([]);
-    <CreateAuthStateContext.Provider value={{ isAuthenticated }}>
+    <CreateAuthStateContext.Provider value={isAuthenticated}>
       <CreateAuthDispatchContext.Provider value={{ handleAuthChange }}>
         {children}
       </CreateAuthDispatchContext.Provider>

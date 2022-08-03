@@ -1,8 +1,16 @@
 import React from "react";
 import "./Blocks.css";
 import ArrayofObjects from "./ArrayofObjects";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  // this is to redirect to cart page. // usenavigate is a builtin component
+  const navigate = useNavigate();
+
+  const OnClickCart = () => {
+    navigate("/cart");
+  };
+
   return (
     <>
       {ArrayofObjects.map((value, id) => {
@@ -36,7 +44,9 @@ function Home() {
                 Charges: <span className="data-props">{value.Charges}</span>
               </p>
 
-              <button className="button">Subscribe</button>
+              <button className="button" onClick={OnClickCart}>
+                Add to Cart
+              </button>
               <img src={value.img}></img>
             </div>
           </div>
