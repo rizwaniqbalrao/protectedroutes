@@ -5,10 +5,15 @@ import { Routes, Route } from "react-router-dom";
 import { Header } from "./Components/Header";
 import "./App.css";
 import Cart from "./Components/Cart";
-import ProtectRoute from "./Components/ProtectedRoute";
+import CartRoute from "./Components/ProtectedRoute/CartRoute";
+import { useCreateAuthStateContext } from "./context/UserContext";
+import SignInRoute from "./Components/ProtectedRoute/SignInRoute";
+import SignOutRoute from "./Components/ProtectedRoute/SignInRoute";
 
 //import Header from "";
 function App() {
+  const value = useCreateAuthStateContext();
+  console.log("value", value);
   // const [user, setUser] = React.useState(null);
 
   // const handleLogin = () => setUser({ id: "1", name: "robin" });
@@ -20,15 +25,23 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/signin" element={<Signin />} />
+        <Route
+          path="/signin"
+          element={
+            <SignInRoute>
+              <Signin />
+            </SignInRoute>
+          }
+        />
         <Route
           path="/cart"
           element={
-            <ProtectRoute>
+            <CartRoute>
               <Cart />
-            </ProtectRoute>
+            </CartRoute>
           }
         />
+        <Route path="/signout" element={<SignOutRoute />} />
       </Routes>
     </div>
   );
